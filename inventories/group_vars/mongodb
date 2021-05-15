@@ -24,5 +24,5 @@ mongodb_initiate_hosts: |
 #mongodb_initiate_arbiter_host: "mongodb-arbiter.###########################.com:27017"
 mongodb_auth_db: "admin"
 mongodb_admin_user: "mongo-admin-user"
-mongodb_admin_password: "EfTGj2xv2TvupRvLd3"
+mongodb_admin_password: "###########################"
 mongodb_key_file: "/var/lib/mongodb/keyfile"
