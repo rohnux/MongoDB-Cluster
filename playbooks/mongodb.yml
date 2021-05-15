@@ -1,0 +1,4 @@
+- hosts: mongodb
+  roles:
+    - { role: roles/mongodb, tags: ["mongodb"] }
+  become: True
