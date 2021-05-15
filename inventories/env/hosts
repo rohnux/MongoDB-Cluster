@@ -1,0 +1,9 @@
+
+#[mongodb:vars]
+#ansible_ssh_private_key_file=/Users/rohan
+
+[mongodb]
+mongodb-0 ansible_ssh_host=198.48.54.193 ansible_ssh_user=ubuntu
+mongodb-1 ansible_ssh_host=198.48.56.237 ansible_ssh_user=ubuntu
+mongodb-2 ansible_ssh_host=198.48.51.133 ansible_ssh_user=ubuntu
+#mongodb-arbiter ansible_ssh_host=198.48.32.91 ansible_ssh_user=ubuntu

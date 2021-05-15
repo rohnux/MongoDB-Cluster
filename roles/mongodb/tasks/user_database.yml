@@ -1,0 +1,28 @@
+- name: Create MongoDB root user
+  mongodb_user:
+    login_port: "27017"
+    database: "admin"
+    name: "{{ mongodb_admin_user }}"
+    password: "{{ mongodb_admin_password }}"
+#    roles: [{ role: "userAdminAnyDatabase",  db: "admin" }, { role: "clusterAdmin",  db: "admin" }]
+    roles: "root"
+  when: ansible_all_ipv4_addresses[0] == mongodb_initiate_primary_ip
+  tags: install
+
+
+### Create Application role
+
+### Create Application user
+# - mongodb_user:
+#     login_database: "{{ mongodb_auth_db }}"
+#     login_user: "{{ mongodb_admin_user }}"
+#     login_password: "{{ mongodb_admin_password }}"
+#     login_port: "27017"
+#     database: "{{ item.database }}"
+#     name: "{{ item.name }}"
+#     password: "{{ item.password }}"
+#     roles:
+#       - { db: "{{ item.database }}", role: "readWrite" }
+#     state: present
+#   with_items: "{{ mongodb_user_database }}"
+#   when: ansible_all_ipv4_addresses[0] == mongodb_initiate_primary_ip

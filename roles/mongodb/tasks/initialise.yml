@@ -1,0 +1,15 @@
+- name: "initiate mongodb on primary"
+  shell: mongo admin --quiet --eval 'rs.initiate({{ mongodb_initiate_hosts }})'
+  when: ansible_all_ipv4_addresses[0] == mongodb_initiate_primary_ip
+  register: mongodb_initialise_result
+
+# - name: "add mongodb replicaset"
+#   shell: mongo admin --quiet --eval 'rs.add("{{item.name}}")'
+#   with_items: "{{mongodb_initiate_secondary_host}}"
+#   when: ansible_all_ipv4_addresses[0] == mongodb_initiate_primary_ip
+#   register: mongodb_initialise_result
+
+# - name: "add mongodb arbiter"
+#   shell: mongo admin --quiet --eval 'rs.add({ host: "{{mongodb_initiate_arbiter_host}}", arbiterOnly: true })'
+#   when: ansible_all_ipv4_addresses[0] == mongodb_initiate_primary_ip
+#   register: mongodb_initialise_arbiter

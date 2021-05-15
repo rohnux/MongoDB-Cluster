@@ -1,0 +1,9 @@
+- include_tasks: setup.yml
+  when: ansible_os_family == 'Debian'
+
+## Below mentioned both tasks will run only on primary mongo server
+- include_tasks: initialise.yml
+  when: ansible_os_family == 'Debian'
+
+- include_tasks: user_database.yml
+  when: ansible_os_family == 'Debian'
